@@ -6,5 +6,11 @@ import (
 
 // Config represents the receiver config settings within the collector's config.yaml
 type Config struct {
-	config.ReceiverSettings `mapstructure:",squash"`
+	config.ProcessorSettings `mapstructure:",squash"`
+}
+
+var _ config.Processor = (*Config)(nil)
+
+func (cfg *Config) Validate() error {
+	return nil
 }
