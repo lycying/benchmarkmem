@@ -21,7 +21,7 @@ const (
 )
 
 var processorCapabilities = consumer.Capabilities{MutatesData: true}
-var logger = &zap.Logger{}
+var logger, _ = zap.NewProduction()
 
 func createDefaultConfig() config.Processor {
 	return &Config{}
